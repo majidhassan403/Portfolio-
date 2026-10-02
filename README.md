@@ -6,9 +6,8 @@ A modern, fully responsive personal portfolio built with pure HTML, CSS and Java
 
 ![Portfolio Banner](banner.jpg)
 
-## 🔗 Live Demo 🌐
-
-[https://portfolio-majid.vercel.app](https://portfolio-majid.vercel.app)
+## 🔗 Live Demo
+[https://portfolio-jvx8nqaqa-majid-hassans-projects-5116236a.vercel.app]
 
 ## ✨ Features
 
