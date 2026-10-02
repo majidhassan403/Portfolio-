@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Majid Hassan | Full Stack Web Developer</title>
+  <meta name="description" content="Majid Hassan — full stack web developer building modern, responsive web applications with React, Tailwind CSS, Node.js, Express and MongoDB." />
+  <meta name="author" content="Majid Hassan" />
+  <meta name="theme-color" content="#F1EDD8" />
+  <link rel="canonical" href="https://github.com/majidhassan403" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Majid Hassan | Full Stack Web Developer" />
+  <meta property="og:description" content="Full stack web developer building modern, responsive web applications with the MERN stack." />
+  <meta property="og:site_name" content="Majid Hassan" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Majid Hassan | Full Stack Web Developer" />
+  <meta name="twitter:description" content="Full stack web developer building modern, responsive web applications with the MERN stack." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%234A5220'/%3E%3Ctext x='32' y='45' font-family='system-ui,sans-serif' font-size='36' font-weight='700' fill='%23F1EDD8' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('theme');
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var theme = saved || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: ['selector', '[data-theme="dark"]'],
+      theme: {
+        extend: {
+          colors: {
+            cream: { DEFAULT: '#F1EDD8', 50: '#F7F4E6', 100: '#F1EDD8', 200: '#E6E1C6', 300: '#DAD4B8' },
+            olive: { DEFAULT: '#4A5220', 600: '#3D4419', 700: '#2F3513', 300: '#8A9154' },
+            ink:   { DEFAULT: '#24270F', soft: '#5E6146', faint: '#9A9C82' },
+            accent: '#D9DC9C'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+            display: ['Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'ui-monospace', 'monospace']
+          },
+          borderRadius: { '2xl': '1.25rem', '3xl': '1.75rem', '4xl': '2.25rem' },
+          maxWidth: { '8xl': '90rem' }
+        }
+      }
+    };
+  </script>
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <a href="#main" class="skip-link">Skip to content</a>
+
+  <div class="progress-bar" aria-hidden="true">
+    <div class="progress-bar__fill" id="progress-fill"></div>
+  </div>
+
+  <header id="site-header" class="site-header">
+    <div class="mx-auto max-w-8xl px-6 md:px-10">
+      <div class="flex h-16 items-center justify-between gap-6 md:h-20">
+        <a href="#home" class="group flex items-center gap-2.5" aria-label="Majid Hassan — home">
+          <span class="brand-mark">M</span>
+          <span class="hidden text-[1.0625rem] font-semibold tracking-tight sm:block">Majid Hassan</span>
+        </a>
+
+        <nav class="hidden items-center gap-1 lg:flex" aria-label="Primary">
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#services" class="nav-link">Services</a>
+          <a href="#projects" class="nav-link">Projects</a>
+          <a href="#reviews" class="nav-link">Reviews</a>
+          <a href="#pricing" class="nav-link">Pricing</a>
+          <a href="#faq" class="nav-link">FAQ</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="#contact" class="btn btn-primary hidden lg:inline-flex">
+            Contact
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+          </a>
+
+          <button class="theme-toggle hidden lg:inline-flex" aria-label="Toggle theme" type="button" data-theme-toggle>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+            </svg>
+          </button>
+
+          <button id="menu-toggle" class="menu-toggle lg:hidden" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu lg:hidden" aria-hidden="true">
+    <div class="mobile-menu__inner">
+      <nav class="mobile-nav" aria-label="Mobile">
+        <a href="#home" class="mobile-link">Home</a>
+        <a href="#about" class="mobile-link">About</a>
+        <a href="#skills" class="mobile-link">Skills</a>
+        <a href="#services" class="mobile-link">Services</a>
+        <a href="#projects" class="mobile-link">Projects</a>
+        <a href="#reviews" class="mobile-link">Reviews</a>
+        <a href="#pricing" class="mobile-link">Pricing</a>
+        <a href="#faq" class="mobile-link">FAQ</a>
+        <a href="#contact" class="mobile-link">Contact</a>
+      </nav>
+
+      <div class="mobile-menu__footer">
+        <div class="mobile-menu__section">
+          <p class="mobile-menu__label">Appearance</p>
+          <button class="theme-toggle" aria-label="Toggle theme" type="button" data-theme-toggle>
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+            </svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/>
+            </svg>
+          </button>
+        </div>
+
+        <div class="mobile-menu__section">
+          <p class="mobile-menu__label">Elsewhere</p>
+          <div class="mobile-socials">
+            <a href="https://github.com/majidhassan403" target="_blank" rel="noopener noreferrer" class="mobile-social">GitHub</a>
+            <a href="https://www.linkedin.com/in/majid-hassan-0844a33bb/" target="_blank" rel="noopener noreferrer" class="mobile-social">LinkedIn</a>
+            <a href="https://www.instagram.com/majidhassan41/" target="_blank" rel="noopener noreferrer" class="mobile-social">Instagram</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main id="main">
+
+    <!-- Hero -->
+    <section id="home" class="relative scroll-mt-24 overflow-hidden pt-16 md:pt-24 lg:pt-28">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-12">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>Majid Hassan — Full Stack Developer</p>
+
+            <h1 class="hero-title mt-6" data-reveal style="--d:80ms">
+              I build full stack web applications,<br class="hidden sm:block" />
+              <span class="text-primary">front to back.</span>
+            </h1>
+
+            <p class="hero-role" data-reveal style="--d:140ms">
+              <span class="hero-role__static">I work as a</span>
+              <span class="hero-role__dynamic" id="typed-role">MERN Stack Developer</span>
+              <span class="hero-role__caret" aria-hidden="true"></span>
+            </p>
+
+            <p class="hero-desc mt-6 max-w-xl" data-reveal style="--d:200ms">
+              I work with React, Tailwind CSS, Node.js, Express and MongoDB.
+              My focus is on responsive interfaces, clean component structure,
+              and APIs that behave predictably in the real world.
+            </p>
+
+            <div class="mt-9 flex flex-wrap items-center gap-3" data-reveal style="--d:280ms">
+              <a href="#projects" class="btn btn-primary">
+                View Projects
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+              </a>
+              <a href="#contact" class="btn btn-ghost">Contact Me</a>
+            </div>
+
+            <div class="mt-10 flex items-center gap-3 text-sm" style="color: var(--text-soft)" data-reveal style="--d:360ms">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>Available for freelance projects and full-time developer roles</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5" data-reveal style="--d:260ms">
+            <div class="hero-card">
+              <div class="hero-card__bar">
+                <span class="hero-card__dot"></span><span class="hero-card__dot"></span><span class="hero-card__dot"></span>
+                <span class="hero-card__file">developer.js</span>
+              </div>
+              <pre class="hero-card__code"><code><span class="tk-key">const</span> <span class="tk-prop">developer</span> <span class="tk-punc">=</span> <span class="tk-punc">{</span>
+  <span class="tk-prop">name</span><span class="tk-punc">:</span> <span class="tk-str">'Majid Hassan'</span><span class="tk-punc">,</span>
+  <span class="tk-prop">role</span><span class="tk-punc">:</span> <span class="tk-str">'MERN Stack Developer'</span><span class="tk-punc">,</span>
+  <span class="tk-prop">stack</span><span class="tk-punc">:</span> <span class="tk-punc">[</span><span class="tk-str">'React'</span><span class="tk-punc">,</span> <span class="tk-str">'Node'</span><span class="tk-punc">,</span> <span class="tk-str">'Express'</span><span class="tk-punc">,</span> <span class="tk-str">'MongoDB'</span><span class="tk-punc">],</span>
+  <span class="tk-prop">focus</span><span class="tk-punc">:</span> <span class="tk-str">'Responsive, well-structured UIs'</span><span class="tk-punc">,</span>
+  <span class="tk-prop">goal</span><span class="tk-punc">:</span> <span class="tk-str">'Build software that holds up'</span><span class="tk-punc">,</span>
+  <span class="tk-prop">shipping</span><span class="tk-punc">:</span> <span class="tk-key">true</span><span class="tk-punc">,</span>
+<span class="tk-punc">};</span></code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="marquee mt-20 border-y py-5 md:mt-28" style="border-color: var(--border)" aria-hidden="true">
+        <div class="marquee__track">
+          <div class="marquee__group">
+            <span>HTML5</span><i></i><span>CSS3</span><i></i><span>JavaScript</span><i></i>
+            <span>React</span><i></i><span>Tailwind CSS</span><i></i><span>Node.js</span><i></i>
+            <span>Express.js</span><i></i><span>MongoDB</span><i></i><span>Mongoose</span><i></i>
+            <span>REST APIs</span><i></i><span>Git</span><i></i><span>GitHub</span><i></i>
+          </div>
+          <div class="marquee__group">
+            <span>HTML5</span><i></i><span>CSS3</span><i></i><span>JavaScript</span><i></i>
+            <span>React</span><i></i><span>Tailwind CSS</span><i></i><span>Node.js</span><i></i>
+            <span>Express.js</span><i></i><span>MongoDB</span><i></i><span>Mongoose</span><i></i>
+            <span>REST APIs</span><i></i><span>Git</span><i></i><span>GitHub</span><i></i>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="about-intro" data-reveal>
+          <p class="eyebrow">01 — About</p>
+          <h2 class="about-heading mt-5">
+            A developer focused on<br class="hidden md:block" />
+            finishing what he starts.
+          </h2>
+        </div>
+
+        <div class="about-stats" data-reveal style="--d:100ms">
+          <div class="stat">
+            <span class="stat__value" data-count="20">0</span>
+            <span class="stat__suffix">+</span>
+            <span class="stat__label">GitHub repositories</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-count="3">0</span>
+            <span class="stat__suffix"></span>
+            <span class="stat__label">Live deployed projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value" data-count="100">0</span>
+            <span class="stat__suffix">%</span>
+            <span class="stat__label">Complete delivery</span>
+          </div>
+        </div>
+
+        <div class="about-body">
+          <div class="about-text" data-reveal style="--d:150ms">
+            <p>I'm Majid Hassan — a full stack web developer specializing in the MERN stack. I build complete web applications with clean React frontends, structured Express backends, and MongoDB databases designed to scale.</p>
+            <p>From the first wireframe to the final deployment, I handle the full build. Every project gets the same treatment: proper planning, sensible architecture, and a complete finish — no loose ends, no half-finished work.</p>
+          </div>
+
+          <aside class="about-card" data-reveal style="--d:220ms">
+            <p class="about-card__label">What I bring</p>
+            <ul class="about-card__list">
+              <li>
+                <span class="about-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <div class="about-card__text">
+                  <strong>Clean, readable code</strong>
+                  <span>Sensible structure, no shortcuts</span>
+                </div>
+              </li>
+              <li>
+                <span class="about-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <div class="about-card__text">
+                  <strong>Full-stack perspective</strong>
+                  <span>Frontend to database, one vision</span>
+                </div>
+              </li>
+              <li>
+                <span class="about-card__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </span>
+                <div class="about-card__text">
+                  <strong>Finished work</strong>
+                  <span>Complete delivery, every time</span>
+                </div>
+              </li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>02 — Skills</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">The tools I actually work with.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              No percentage bars — just the technologies I use to build and ship projects, grouped by where they sit in the stack.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="skill-card" data-reveal>
+            <span class="skill-card__index">01</span>
+            <h3 class="skill-card__title">Frontend</h3>
+            <ul class="skill-card__list"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Tailwind CSS</li><li>React</li></ul>
+          </article>
+          <article class="skill-card" data-reveal style="--d:80ms">
+            <span class="skill-card__index">02</span>
+            <h3 class="skill-card__title">Backend</h3>
+            <ul class="skill-card__list"><li>Node.js</li><li>Express.js</li><li>Mongoose</li></ul>
+          </article>
+          <article class="skill-card" data-reveal style="--d:160ms">
+            <span class="skill-card__index">03</span>
+            <h3 class="skill-card__title">Database</h3>
+            <ul class="skill-card__list"><li>MongoDB</li><li>Schema design</li><li>CRUD operations</li></ul>
+          </article>
+          <article class="skill-card" data-reveal style="--d:240ms">
+            <span class="skill-card__index">04</span>
+            <h3 class="skill-card__title">Workflow</h3>
+            <ul class="skill-card__list"><li>Git &amp; GitHub</li><li>REST APIs</li><li>Responsive design</li><li>MERN stack</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>03 — Services</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">What I can build for you.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              Every project starts with a conversation about scope. If something isn't a good fit for what I do, I'll say so before we begin.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <article class="service-card" data-reveal>
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2" /><path d="M3 9h18M8 21h8" /></svg></div>
+            <h3 class="service-card__title">Responsive Website Development</h3>
+            <p class="service-card__body">Websites built to work properly on phones, tablets and desktops — not just scaled-down desktop layouts.</p>
+          </article>
+          <article class="service-card" data-reveal style="--d:60ms">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6 2 12l6 6M16 6l6 6-6 6" /></svg></div>
+            <h3 class="service-card__title">Frontend Development</h3>
+            <p class="service-card__body">Interfaces built with HTML, CSS, JavaScript, Tailwind CSS and React — structured into components that are easy to extend.</p>
+          </article>
+          <article class="service-card" data-reveal style="--d:120ms">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v6c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6" /></svg></div>
+            <h3 class="service-card__title">Full Stack Web Development</h3>
+            <p class="service-card__body">Complete applications using the MERN stack — frontend, backend and database wired together as one working product.</p>
+          </article>
+          <article class="service-card" data-reveal style="--d:180ms">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" /><circle cx="19" cy="17" r="2" /></svg></div>
+            <h3 class="service-card__title">Backend &amp; REST API Development</h3>
+            <p class="service-card__body">Structured APIs built with Node.js and Express — clear routes, sensible error handling, and MongoDB models that make sense.</p>
+          </article>
+          <article class="service-card" data-reveal style="--d:240ms">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M9 3v18M3 9h18" /></svg></div>
+            <h3 class="service-card__title">Design-to-Code Implementation</h3>
+            <p class="service-card__body">Have a design, a reference or a rough sketch? I'll turn it into a responsive, functional website that matches it closely.</p>
+          </article>
+          <article class="service-card" data-reveal style="--d:300ms">
+            <div class="service-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z" /></svg></div>
+            <h3 class="service-card__title">Website Improvements</h3>
+            <p class="service-card__body">Fixing responsiveness, tightening up UI structure, and improving load behaviour and usability on an existing site.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>04 — Projects</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">Selected work.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              Three projects I've built and deployed — covering React components, live API integration, and clean UI work.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 projects-grid">
+
+          <article class="project-card" data-reveal>
+            <div class="project-card__preview">
+              <div class="pv-browser">
+                <div class="pv-browser__bar">
+                  <span></span><span></span><span></span>
+                  <em>ats-resume-checker</em>
+                </div>
+                <div class="pv-ats">
+                  <div class="pv-ats__doc">
+                    <div class="pv-ats__doc-name"></div>
+                    <div class="pv-ats__doc-line"></div>
+                    <div class="pv-ats__doc-line pv-ats__doc-line--short"></div>
+                    <div class="pv-ats__doc-line"></div>
+                    <div class="pv-ats__doc-line pv-ats__doc-line--mid"></div>
+                    <div class="pv-ats__doc-line pv-ats__doc-line--short"></div>
+                    <div class="pv-ats__doc-line"></div>
+                  </div>
+                  <div class="pv-ats__score">
+                    <div class="pv-ats__ring"><span>82%</span></div>
+                    <p class="pv-ats__label">ATS Match</p>
+                    <div class="pv-ats__tags">
+                      <span class="pv-ats__tag pv-ats__tag--ok">React</span>
+                      <span class="pv-ats__tag pv-ats__tag--ok">Node</span>
+                      <span class="pv-ats__tag pv-ats__tag--miss">AWS</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="project-card__title">ATS Resume Checker</h3>
+                <span class="project-card__badge">React App</span>
+              </div>
+              <p class="project-card__desc">An ATS Resume Analyzer built with React and Tailwind CSS. Parses resumes and returns structured, actionable feedback.</p>
+              <ul class="tag-list"><li>React</li><li>Vite</li><li>Tailwind CSS</li><li>JavaScript</li></ul>
+              <div class="project-card__actions">
+                <a href="https://ats-resume-checker-yvik.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  Visit Live Site
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                </a>
+                <button type="button" class="copy-btn copy-btn--square" data-copy="https://ats-resume-checker-yvik.vercel.app/" data-copy-type="link" aria-label="Copy project link">
+                  <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal style="--d:100ms">
+            <div class="project-card__preview">
+              <div class="pv-browser">
+                <div class="pv-browser__bar">
+                  <span></span><span></span><span></span>
+                  <em>github-profile-explorer</em>
+                </div>
+                <div class="pv-gh">
+                  <div class="pv-gh__search">
+                    <span class="pv-gh__search-icon"></span>
+                    <span class="pv-gh__search-text">majidhassan403</span>
+                  </div>
+                  <div class="pv-gh__profile">
+                    <div class="pv-gh__avatar"></div>
+                    <div class="pv-gh__info">
+                      <div class="pv-gh__name"></div>
+                      <div class="pv-gh__handle"></div>
+                      <div class="pv-gh__bio"></div>
+                    </div>
+                  </div>
+                  <div class="pv-gh__stats">
+                    <div class="pv-gh__stat"><strong>21</strong><span>Repos</span></div>
+                    <div class="pv-gh__stat"><strong>8</strong><span>Followers</span></div>
+                    <div class="pv-gh__stat"><strong>9</strong><span>Following</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="project-card__title">GitHub Profile Explorer</h3>
+                <span class="project-card__badge">API Tool</span>
+              </div>
+              <p class="project-card__desc">A tool to explore GitHub users by username, built with vanilla JavaScript and the GitHub REST API.</p>
+              <ul class="tag-list"><li>JavaScript</li><li>REST API</li><li>HTML</li><li>CSS</li></ul>
+              <div class="project-card__actions">
+                <a href="https://majidhassan403.github.io/github-profile-explorer/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  Visit Live Site
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                </a>
+                <button type="button" class="copy-btn copy-btn--square" data-copy="https://majidhassan403.github.io/github-profile-explorer/" data-copy-type="link" aria-label="Copy project link">
+                  <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card" data-reveal style="--d:150ms">
+            <div class="project-card__preview">
+              <div class="pv-browser">
+                <div class="pv-browser__bar">
+                  <span></span><span></span><span></span>
+                  <em>currency-converter-pro</em>
+                </div>
+                <div class="pv-cc">
+                  <div class="pv-cc__row">
+                    <span class="pv-cc__amount">100.00</span>
+                    <span class="pv-cc__currency">USD</span>
+                  </div>
+                  <div class="pv-cc__swap"><span>⇅</span></div>
+                  <div class="pv-cc__row pv-cc__row--result">
+                    <span class="pv-cc__amount">27,845.00</span>
+                    <span class="pv-cc__currency">PKR</span>
+                  </div>
+                  <p class="pv-cc__rate">1 USD = 278.45 PKR</p>
+                </div>
+              </div>
+            </div>
+            <div class="project-card__body">
+              <div class="flex items-start justify-between gap-3">
+                <h3 class="project-card__title">Currency Converter Pro</h3>
+                <span class="project-card__badge">Utility</span>
+              </div>
+              <p class="project-card__desc">A real-time currency converter built with JavaScript. Fetches live exchange rates and converts between currencies.</p>
+              <ul class="tag-list"><li>JavaScript</li><li>HTML</li><li>CSS</li><li>Fetch API</li></ul>
+              <div class="project-card__actions">
+                <a href="https://majidhassan403.github.io/currency-converter-pro/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm">
+                  Visit Live Site
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+                </a>
+                <button type="button" class="copy-btn copy-btn--square" data-copy="https://majidhassan403.github.io/currency-converter-pro/" data-copy-type="link" aria-label="Copy project link">
+                  <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>
+                  <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="mt-12 flex justify-center" data-reveal>
+          <a href="https://github.com/majidhassan403" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+            See more on GitHub
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Reviews -->
+    <section id="reviews" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>05 — Reviews</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">What clients say.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              Honest feedback from people I've worked with — no marketing fluff, just what they actually experienced.
+            </p>
+          </div>
+        </div>
+
+        <div class="reviews-grid mt-14">
+          <figure class="review-card" data-reveal>
+            <svg class="review-card__quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm9 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+            <blockquote class="review-card__text">
+              Delivered exactly what we discussed — clean code, no surprises, and the site worked the first time we tested it. Would hire again.
+            </blockquote>
+            <figcaption class="review-card__author">
+              <span class="review-card__avatar" aria-hidden="true">AK</span>
+              <div class="review-card__meta">
+                <strong>Ahmed Khan</strong>
+                <span>Small business owner</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="review-card" data-reveal style="--d:80ms">
+            <svg class="review-card__quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm9 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+            <blockquote class="review-card__text">
+              Communication was clear throughout the project. Every milestone was on time, and the final result matched the design closely.
+            </blockquote>
+            <figcaption class="review-card__author">
+              <span class="review-card__avatar" aria-hidden="true">SF</span>
+              <div class="review-card__meta">
+                <strong>Sara Fatima</strong>
+                <span>Marketing consultant</span>
+              </div>
+            </figcaption>
+          </figure>
+
+          <figure class="review-card" data-reveal style="--d:160ms">
+            <svg class="review-card__quote" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 17h3l2-4V7H5v6h3l-2 4zm9 0h3l2-4V7h-6v6h3l-2 4z"/></svg>
+            <blockquote class="review-card__text">
+              Needed a small feature added to my existing site. Majid understood the codebase quickly and shipped it cleanly without breaking anything.
+            </blockquote>
+            <figcaption class="review-card__author">
+              <span class="review-card__avatar" aria-hidden="true">HR</span>
+              <div class="review-card__meta">
+                <strong>Hamza Raza</strong>
+                <span>Startup founder</span>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section id="pricing" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>06 — Pricing</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">Scope-based pricing, quoted upfront.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              These are starting estimates, not fixed prices. Every project gets a proper quote after we've talked through what you actually need.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-14 grid gap-6 lg:grid-cols-3">
+          <article class="price-card" data-reveal>
+            <header class="price-card__head"><h3 class="price-card__name">Starter</h3><p class="price-card__for">For simple sites and landing pages</p></header>
+            <div class="price-card__amount"><span class="price-card__currency">PKR</span><span class="price-card__value">5,000</span></div>
+            <p class="price-card__note">Starting price</p>
+            <ul class="price-card__features">
+              <li>1–2 pages or sections</li><li>Responsive layout (mobile → desktop)</li>
+              <li>Basic scroll and hover animations</li><li>HTML, CSS &amp; Tailwind CSS</li>
+              <li>Contact form UI</li><li>1 round of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Discuss Your Project</a>
+          </article>
+
+          <article class="price-card price-card--featured" data-reveal style="--d:100ms">
+            <span class="price-card__tag">Most requested</span>
+            <header class="price-card__head"><h3 class="price-card__name">Professional</h3><p class="price-card__for">For complete business or personal sites</p></header>
+            <div class="price-card__amount"><span class="price-card__currency">PKR</span><span class="price-card__value">12,000</span></div>
+            <p class="price-card__note">Starting price</p>
+            <ul class="price-card__features">
+              <li>Up to 5 pages or sections</li><li>Responsive across all breakpoints</li>
+              <li>Richer interactions &amp; animation</li><li>React or HTML + Tailwind CSS</li>
+              <li>Working contact form (frontend)</li><li>2 rounds of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-accent btn-block">Discuss Your Project</a>
+          </article>
+
+          <article class="price-card" data-reveal style="--d:200ms">
+            <header class="price-card__head"><h3 class="price-card__name">Premium</h3><p class="price-card__for">For custom web applications</p></header>
+            <div class="price-card__amount"><span class="price-card__currency">PKR</span><span class="price-card__value">25,000<span class="price-card__plus">+</span></span></div>
+            <p class="price-card__note">Starting price</p>
+            <ul class="price-card__features">
+              <li>Custom application scope</li><li>Frontend + backend (MERN stack)</li>
+              <li>REST API with Node.js &amp; Express</li><li>MongoDB data modelling</li>
+              <li>Auth, dashboards or custom features</li><li>3 rounds of revisions</li>
+            </ul>
+            <a href="#contact" class="btn btn-outline btn-block">Discuss Your Project</a>
+          </article>
+        </div>
+
+        <p class="mt-8 max-w-3xl text-sm leading-relaxed" style="color: var(--text-faint)" data-reveal>
+          All figures above are starting estimates in PKR. Final pricing depends on scope, complexity and timeline.
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-8 lg:grid-cols-12 lg:items-end">
+          <div class="lg:col-span-7">
+            <p class="eyebrow" data-reveal>07 — FAQ</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">Common questions.</h2>
+          </div>
+          <div class="lg:col-span-5">
+            <p class="text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              Quick answers to things clients usually ask before we start a project.
+            </p>
+          </div>
+        </div>
+
+        <div class="faq-grid mt-14">
+          <details class="faq-item" data-reveal>
+            <summary>
+              <span>How does the process work?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>We start with a short conversation about what you need. Then I share a written scope, a fixed price, and a realistic timeline. Once you approve, I start building. You'll get progress updates at every milestone, and the final delivery includes the deployed site and complete source code.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal style="--d:60ms">
+            <summary>
+              <span>What technologies do you work with?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>On the frontend: HTML, CSS, JavaScript, Tailwind CSS and React. On the backend: Node.js and Express. For data: MongoDB with Mongoose. I also work with Git, REST APIs and modern tooling like Vite. If a project needs something outside this stack, I'll be upfront about it before we start.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal style="--d:120ms">
+            <summary>
+              <span>Do you offer revisions?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>Yes. Every package includes a set number of revision rounds — Starter includes 1, Professional includes 2, and Premium includes 3. Revisions cover refinements to the delivered work, not a change in scope. If you want to add new features mid-project, we'll discuss that separately.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal style="--d:180ms">
+            <summary>
+              <span>How do we communicate during the project?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>Through email, WhatsApp, or any messaging platform you prefer. I send progress updates at each milestone so you always know exactly where the project stands. You can reach me any time during a project — no waiting for a weekly call.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal style="--d:240ms">
+            <summary>
+              <span>How do I get started?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>Fill out the contact form or message me on WhatsApp. Tell me briefly what you're building and what stage it's at. I'll reply with whether I'm a good fit — and if I am, we'll get on a short call to lock down the details.</p>
+            </div>
+          </details>
+
+          <details class="faq-item" data-reveal style="--d:300ms">
+            <summary>
+              <span>What's included in the delivery?</span>
+              <svg class="faq-item__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
+            </summary>
+            <div class="faq-item__body">
+              <p>The fully deployed website, the complete source code on GitHub (if you want it), and a short handover document explaining how to update content, where things live, and how to deploy new changes. You own everything after delivery.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="scroll-mt-24 py-24 md:py-32 lg:py-40">
+      <div class="mx-auto max-w-8xl px-6 md:px-10">
+        <div class="grid gap-14 lg:grid-cols-12 lg:gap-16">
+          <div class="lg:col-span-5">
+            <p class="eyebrow" data-reveal>08 — Contact</p>
+            <h2 class="section-title mt-5" data-reveal style="--d:80ms">Let's talk about your project.</h2>
+            <p class="mt-6 text-[1.0625rem] leading-relaxed" style="color: var(--text-soft)" data-reveal style="--d:120ms">
+              Tell me what you're building and what stage it's at. I'll get back to you with an honest answer about whether I'm the right fit — and what it would take.
+            </p>
+
+            <div class="mt-10 contact-card" data-reveal style="--d:160ms">
+              <div class="contact-card__info">
+                <span class="contact-card__label">Email</span>
+                <span class="contact-card__value">majidali7y@gmail.com</span>
+              </div>
+              <button type="button" class="copy-btn" data-copy="majidali7y@gmail.com" data-copy-type="email" aria-label="Copy email">
+                <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>
+                </svg>
+                <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="mt-3 contact-card" data-reveal style="--d:200ms">
+              <div class="contact-card__info">
+                <span class="contact-card__label">Phone</span>
+                <span class="contact-card__value">0316-8219972</span>
+              </div>
+              <button type="button" class="copy-btn" data-copy="+923168219972" data-copy-type="phone" aria-label="Copy phone number">
+                <svg class="copy-btn__icon copy-btn__icon--copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/>
+                </svg>
+                <svg class="copy-btn__icon copy-btn__icon--check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M20 6 9 17l-5-5"/>
+                </svg>
+              </button>
+            </div>
+
+            <div class="mt-4 space-y-3" data-reveal style="--d:240ms">
+              <a href="https://github.com/majidhassan403" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <span class="contact-link__label">GitHub</span><span class="contact-link__value">majidhassan403</span>
+                <svg class="contact-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/majid-hassan-0844a33bb/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <span class="contact-link__label">LinkedIn</span><span class="contact-link__value">majid-hassan</span>
+                <svg class="contact-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+              </a>
+              <a href="https://www.instagram.com/majidhassan41/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                <span class="contact-link__label">Instagram</span><span class="contact-link__value">majidhassan41</span>
+                <svg class="contact-link__arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8" /></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7" data-reveal style="--d:140ms">
+            <form id="contact-form" class="form-card" novalidate>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div class="field">
+                  <label for="name" class="field__label">Name</label>
+                  <input type="text" id="name" name="name" class="field__input" placeholder="Your full name" autocomplete="name" required />
+                  <p class="field__error" data-error-for="name"></p>
+                </div>
+                <div class="field">
+                  <label for="email" class="field__label">Email</label>
+                  <input type="email" id="email" name="email" class="field__input" placeholder="you@company.com" autocomplete="email" required />
+                  <p class="field__error" data-error-for="email"></p>
+                </div>
+                <div class="field">
+                  <label for="projectType" class="field__label">Project type</label>
+                  <div class="field__select-wrap">
+                    <select id="projectType" name="projectType" class="field__input field__select" required>
+                      <option value="" selected disabled>Select a type</option>
+                      <option>Landing page</option><option>Business / personal website</option>
+                      <option>Frontend development</option><option>Full stack web application</option>
+                      <option>Backend / REST API</option><option>Website improvement</option>
+                      <option>Something else</option>
+                    </select>
+                    <svg class="field__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                  </div>
+                  <p class="field__error" data-error-for="projectType"></p>
+                </div>
+                <div class="field">
+                  <label for="budget" class="field__label">Budget range</label>
+                  <div class="field__select-wrap">
+                    <select id="budget" name="budget" class="field__input field__select">
+                      <option value="" selected>Not sure yet</option>
+                      <option>Under PKR 5,000</option><option>PKR 5,000 – 12,000</option>
+                      <option>PKR 12,000 – 25,000</option><option>PKR 25,000+</option>
+                    </select>
+                    <svg class="field__chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6" /></svg>
+                  </div>
+                </div>
+                <div class="field sm:col-span-2">
+                  <div class="field__label-row">
+                    <label for="message" class="field__label">Message</label>
+                    <span class="field__counter" id="message-counter">0 / 500</span>
+                  </div>
+                  <textarea id="message" name="message" rows="5" maxlength="500" class="field__input field__textarea" placeholder="What are you building? What stage is it at?" required></textarea>
+                  <p class="field__error" data-error-for="message"></p>
+                </div>
+              </div>
+
+              <div class="mt-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                <button type="submit" class="btn btn-primary" id="submit-btn">
+                  Send Inquiry
+                  <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6" /></svg>
+                </button>
+                <p class="text-xs leading-relaxed sm:max-w-xs" style="color: var(--text-faint)">Usually a reply within a day or two.</p>
+              </div>
+              <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
+              <p class="form-autosave-hint" id="autosave-hint" hidden>Draft saved — your message will still be here if you come back.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="mx-auto max-w-8xl px-6 md:px-10">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="#home" class="flex items-center gap-2.5" aria-label="Majid Hassan — back to top">
+            <span class="footer-mark">M</span>
+            <span class="text-[1.0625rem] font-semibold tracking-tight">Majid Hassan</span>
+          </a>
+          <p class="footer__tagline">
+            Full stack web developer building modern, responsive applications with the MERN stack — from the first component to the last API route.
+          </p>
+
+          <div class="footer__socials">
+            <a href="https://github.com/majidhassan403" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5A11.5 11.5 0 0 0 .5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.2 1.77 1.2 1.03 1.78 2.7 1.27 3.36.97.1-.75.4-1.27.73-1.56-2.55-.29-5.24-1.28-5.24-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.25 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.2.67.8.56A11.5 11.5 0 0 0 23.5 12 11.5 11.5 0 0 0 12 .5Z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/majid-hassan-0844a33bb/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0Z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/majidhassan41/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <nav class="footer__nav" aria-label="Footer">
+          <p class="footer__heading">Navigate</p>
+          <ul class="footer__list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer__contact">
+          <p class="footer__heading">Get in touch</p>
+          <ul class="footer__list">
+            <li><a href="https://github.com/majidhassan403" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+            <li><a href="https://www.linkedin.com/in/majid-hassan-0844a33bb/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+            <li><a href="https://www.instagram.com/majidhassan41/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+            <li><a href="#contact">Send an inquiry ↗</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span id="year">2026</span> Majid Hassan. All rights reserved.</p>
+        <p class="footer__meta">
+          <span class="footer__time"><span id="local-time">--:--</span> PKT</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <div class="floating-actions">
+    <a href="https://wa.me/923168219972?text=Hi%20Majid%2C%20I%20saw%20your%20portfolio%20and%20I%27d%20like%20to%20discuss%20a%20project."
+       class="wa-btn"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat on WhatsApp">
+      <span class="wa-btn__pulse" aria-hidden="true"></span>
+      <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a13.4 13.4 0 0 0-.57-.01 1.09 1.09 0 0 0-.792.372c-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.71.306 1.263.489 1.694.625.712.227 1.36.195 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413"/>
+      </svg>
+    </a>
+
+    <div class="scroll-actions" id="scroll-actions">
+      <button class="scroll-action" data-dir="up" aria-label="Scroll to top" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+      </button>
+      <button class="scroll-action" data-dir="down" aria-label="Scroll to bottom" type="button">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite">Copied to clipboard</div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
